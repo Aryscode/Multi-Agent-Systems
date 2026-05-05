@@ -1,0 +1,18 @@
+<ARXML>
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>MyPackage</SHORT-NAME>
+      <ELEMENTS>
+        <Runnable>
+          <SHORT-NAME>MyRunnable</SHORT-NAME>
+           <DataReceivedEvent>
+             <SHORT-NAME>MyDataReceivedEvent</SHORT-NAME>
+             <DATA-REF ref="MyData"/>
+           </DataReceivedEvent>
+          <RUNTIME-ENVIRONMENT>MyEnvironment</RUNTIME-ENVIRONMENT>
+          <SWC-REF ref="MySoftwareComponent"/>
+        </Runnable>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</ARXML>

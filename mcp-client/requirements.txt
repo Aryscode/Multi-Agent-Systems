@@ -1,0 +1,4 @@
+ollama
+rich
+mcp
+python-dotenv

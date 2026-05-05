@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0">
+  <AR-PACKAGES>
+    <AR-PACKAGE>
+      <SHORT-NAME>ExamplePackage</SHORT-NAME>
+      <ELEMENTS>
+        <APPLICATION-SW-COMPONENT-TYPE>
+          <SHORT-NAME>ExampleSWC</SHORT-NAME>
+
+          <!-- Internal behavior: short-name ends with _IB as requested -->
+          <INTERNAL-BEHAVIOR>
+            <SHORT-NAME>ExampleSWC_IB</SHORT-NAME>
+
+            <!-- Runnable definition with a periodic timing event (10 ms) -->
+            <RUNNABLES>
+              <RUNNABLE-ENTITY>
+                <SHORT-NAME>ReadSensorRunnable</SHORT-NAME>
+                <REENTRANCY>non-reentrant</REENTRANCY>
+                <SYMBOL>ReadSensorRunnable</SYMBOL>
+
+                <EVENTS>
+                  <TIMING-EVENT>
+                    <SHORT-NAME>Periodic_10ms</SHORT-NAME>
+                    <CYCLE-TIME>
+                      <VALUE>10</VALUE>
+                      <UNIT>ms</UNIT>
+                    </CYCLE-TIME>
+                    <MAXIMUM-START-DELAY>
+                      <VALUE>0</VALUE>
+                      <UNIT>ms</UNIT>
+                    </MAXIMUM-START-DELAY>
+                  </TIMING-EVENT>
+                </EVENTS>
+
+                <!-- Example of read/write mapping to the port would go here -->
+              </RUNNABLE-ENTITY>
+            </RUNNABLES>
+
+          </INTERNAL-BEHAVIOR>
+
+          <!-- Provided port referencing a sender-receiver interface -->
+          <PORTS>
+            <P-PORT-PROTOTYPE>
+              <SHORT-NAME>ExamplePort</SHORT-NAME>
+              <PROVIDED-INTERFACE-TREF DEST="SENDER-RECEIVER-INTERFACE">/ExamplePackage/ExampleIf</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+
+        </APPLICATION-SW-COMPONENT-TYPE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

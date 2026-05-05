@@ -1,0 +1,53 @@
+from typing import Any
+import httpx
+from mcp.server.fastmcp import FastMCP 
+
+#initialize FastMCP server
+mcp = FastMCP("map")
+
+#constants
+MAPS_URL = "https://api.example.com/maps"
+USER_AGENT = "SpotRecommenderAgent/1.0"
+
+async def make_maps_request(url: str) -> dict[str, Any] | None:
+    """ Make a request to the maps API with proper error handling."""
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "application/json"
+    }
+    async with httpx.AsyncClient() as client:
+        try:
+            response = await client.get(url, headers=headers, timeout=10.0)
+            response.raise_for_status()
+            return response.json()
+        except Exception:
+            return None
+        
+def format_alert(feature: dict) -> str:
+    """ Format an alert feature into a readable string."""
+    props = feature["properties"]
+    return f""""""
+
+@mcp.tool()
+async def get_current_location() -> dict[str: float, str: float]:
+    """ Get the current location of the user."""
+
+    # Placeholder for actual location fetching logic
+
+    return  
+
+@mcp.tool()
+async def get_spots(src, dest, kind, radius) -> list[dict[str, Any]]:
+    """ Get spots of certain kind along the route"""
+
+    # Placeholder for actual spot fetching logic
+
+    return 
+
+@mcp.tool()
+async def get_review_summary(spot) -> str:
+    """ Get a summary of reviews for a given spot."""
+
+    # Placeholder for actual review fetching logic
+
+    return
